@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./ChatInput.css"
+import callGemini from "../utility/api"
 
 
 export default function ChatInput({chatMessages, setChatMessages}){
@@ -25,9 +26,10 @@ export default function ChatInput({chatMessages, setChatMessages}){
         }])
         const tempInput = inputText
         setInputText('')
+        
+        const response = await callGemini(tempInput, chatMessages);
 
         
-        const response = await Chatbot.getResponseAsync(tempInput) 
         setChatMessages([...newChatMessages, {
             message: response, 
             sender: 'robot', 
