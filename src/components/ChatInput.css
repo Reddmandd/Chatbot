@@ -23,3 +23,8 @@
 
     flex-grow: 1;
 }
+
+.loading-spinner{
+    height: 40px;
+        margin: -15px;
+}

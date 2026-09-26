@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./ChatInput.css"
 import callGemini from "../utility/api"
+import loadingGif from "../assets/loadinggif.gif"
 
 
 export default function ChatInput({chatMessages, setChatMessages}){
@@ -20,7 +21,7 @@ export default function ChatInput({chatMessages, setChatMessages}){
         }]
         
         setChatMessages([...newChatMessages, {
-            message: "Loading...", 
+            message:  <img src={loadingGif} className="loading-spinner" />, 
             sender: 'robot', 
             id: crypto.randomUUID()
         }])
